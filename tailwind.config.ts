@@ -33,11 +33,12 @@ export default {
         "bubble-outgoing": "hsl(var(--bubble-outgoing))",
         "bubble-outgoing-foreground": "hsl(var(--bubble-outgoing-foreground))",
         
-        // Gradient Accent Colors
+        // Enhanced Gradient Accent Colors
         "primary-blue": "hsl(var(--primary-blue))",
         "primary-purple": "hsl(var(--primary-purple))",
         "primary-teal": "hsl(var(--primary-teal))",
         "accent-glow": "hsl(var(--accent-glow))",
+        "glow-intense": "hsl(var(--glow-intense))",
         
         primary: {
           DEFAULT: "hsl(var(--primary))",
@@ -116,10 +117,10 @@ export default {
         },
         "pulse-glow": {
           "0%, 100%": {
-            boxShadow: "0 0 5px hsl(var(--accent-glow)/0.3)",
+            boxShadow: "0 0 8px hsl(var(--accent-glow)/0.4), 0 0 16px hsl(var(--accent-glow)/0.2)",
           },
           "50%": {
-            boxShadow: "0 0 20px hsl(var(--accent-glow)/0.6), 0 0 30px hsl(var(--accent-glow)/0.4)",
+            boxShadow: "0 0 25px hsl(var(--accent-glow)/0.7), 0 0 50px hsl(var(--accent-glow)/0.4), 0 0 75px hsl(var(--glow-intense)/0.3)",
           },
         },
         "sidebar-slide": {

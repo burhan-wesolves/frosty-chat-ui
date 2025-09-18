@@ -6,51 +6,52 @@
 
 @layer base {
   :root {
-    /* Glassmorphism Base Colors */
-    --background: 240 20% 8%;
+    /* Dark Solid Base Colors */
+    --background: 220 25% 8%;
     --foreground: 0 0% 98%;
 
-    /* Glass Panel Colors */
-    --glass: 240 15% 15%;
-    --glass-light: 240 20% 25%;
-    --glass-dark: 240 12% 8%;
+    /* Enhanced Glass Panel Colors */
+    --glass: 220 20% 15%;
+    --glass-light: 220 25% 20%;
+    --glass-dark: 220 15% 10%;
     
     /* Message Bubble Colors */
-    --bubble-incoming: 240 15% 20%;
+    --bubble-incoming: 220 20% 18%;
     --bubble-incoming-foreground: 0 0% 95%;
     --bubble-outgoing: 250 60% 60%;
     --bubble-outgoing-foreground: 0 0% 98%;
     
-    /* Accent Colors for Gradients */
+    /* Enhanced Accent Colors for Glows */
     --primary-blue: 240 100% 70%;
     --primary-purple: 270 100% 75%;
     --primary-teal: 180 100% 70%;
     --accent-glow: 250 100% 80%;
+    --glow-intense: 260 100% 85%;
     
     /* UI Element Colors */
-    --card: 240 15% 15%;
+    --card: 220 20% 15%;
     --card-foreground: 0 0% 95%;
     
-    --popover: 240 15% 12%;
+    --popover: 220 20% 12%;
     --popover-foreground: 0 0% 95%;
     
     --primary: 250 60% 60%;
     --primary-foreground: 0 0% 98%;
     
-    --secondary: 240 15% 20%;
+    --secondary: 220 20% 20%;
     --secondary-foreground: 0 0% 90%;
     
-    --muted: 240 10% 25%;
+    --muted: 220 15% 25%;
     --muted-foreground: 0 0% 70%;
     
-    --accent: 240 20% 25%;
+    --accent: 220 25% 25%;
     --accent-foreground: 0 0% 95%;
     
     --destructive: 0 75% 60%;
     --destructive-foreground: 0 0% 98%;
     
-    --border: 240 15% 25%;
-    --input: 240 15% 18%;
+    --border: 220 20% 25%;
+    --input: 220 20% 18%;
     --ring: 250 100% 80%;
 
     --radius: 1rem;
@@ -118,59 +119,90 @@
 
   body {
     @apply bg-background text-foreground;
+    background-image: 
+      radial-gradient(circle at 25% 25%, hsl(var(--primary-blue)/0.15) 0%, transparent 50%),
+      radial-gradient(circle at 75% 75%, hsl(var(--primary-purple)/0.1) 0%, transparent 50%),
+      url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.02'%3E%3Ccircle cx='30' cy='30' r='1'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
   }
 }
 
-/* Glassmorphism Utilities */
+/* Enhanced Glassmorphism Utilities */
 @layer utilities {
-  /* Glass Panel Effects */
+  /* Enhanced Glass Panel Effects */
   .glass-panel {
-    @apply bg-glass/30 backdrop-blur-md border border-white/10 shadow-2xl;
+    @apply bg-glass/40 backdrop-blur-xl border border-white/20 shadow-2xl;
+    box-shadow: 
+      0 8px 32px rgba(0, 0, 0, 0.3),
+      0 0 0 1px rgba(255, 255, 255, 0.1),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2);
   }
   
   .glass-panel-light {
-    @apply bg-glass-light/25 backdrop-blur-lg border border-white/15 shadow-xl;
+    @apply bg-glass-light/35 backdrop-blur-2xl border border-white/25;
+    box-shadow: 
+      0 8px 32px rgba(0, 0, 0, 0.4),
+      0 0 0 1px rgba(255, 255, 255, 0.15),
+      inset 0 1px 0 rgba(255, 255, 255, 0.25),
+      0 0 40px rgba(250, 100, 255, 0.1);
   }
   
   .glass-panel-dark {
-    @apply bg-glass-dark/40 backdrop-blur-sm border border-white/5;
+    @apply bg-glass-dark/50 backdrop-blur-lg border border-white/10;
+    box-shadow: 
+      0 8px 32px rgba(0, 0, 0, 0.5),
+      0 0 0 1px rgba(255, 255, 255, 0.05),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
   }
 
-  /* Message Bubble Styles */
+  /* Enhanced Message Bubble Styles */
   .message-incoming {
-    @apply bg-bubble-incoming/60 backdrop-blur-md border border-white/10 text-bubble-incoming-foreground shadow-lg;
+    @apply bg-bubble-incoming/70 backdrop-blur-lg border border-white/15 text-bubble-incoming-foreground;
+    box-shadow: 
+      0 4px 16px rgba(0, 0, 0, 0.2),
+      0 0 0 1px rgba(255, 255, 255, 0.1),
+      inset 0 1px 0 rgba(255, 255, 255, 0.15);
   }
   
   .message-outgoing {
-    @apply bg-gradient-to-br from-primary-blue/80 to-primary-purple/80 backdrop-blur-md border border-white/20 text-bubble-outgoing-foreground shadow-lg shadow-primary-blue/25;
+    @apply bg-gradient-to-br from-primary-blue/85 to-primary-purple/85 backdrop-blur-lg border border-white/30 text-bubble-outgoing-foreground;
+    box-shadow: 
+      0 4px 16px hsl(var(--primary-blue)/0.3),
+      0 8px 32px hsl(var(--primary-purple)/0.2),
+      0 0 0 1px rgba(255, 255, 255, 0.2),
+      inset 0 1px 0 rgba(255, 255, 255, 0.3);
   }
 
-  /* Gradient Backgrounds */
-  .gradient-bg {
-    background: linear-gradient(135deg, 
-      hsl(var(--primary-blue)) 0%, 
-      hsl(var(--primary-purple)) 35%, 
-      hsl(var(--primary-teal)) 100%);
+  /* Enhanced Interactive Effects */
+  .glow-on-hover {
+    @apply transition-all duration-300;
   }
   
-  .gradient-glow {
-    background: linear-gradient(135deg, 
-      hsl(var(--primary-blue)/0.8) 0%, 
-      hsl(var(--accent-glow)/0.6) 50%, 
-      hsl(var(--primary-purple)/0.8) 100%);
-  }
-
-  /* Interactive Effects */
-  .glow-on-hover {
-    @apply transition-all duration-300 hover:shadow-lg hover:shadow-accent-glow/30 hover:scale-105;
+  .glow-on-hover:hover {
+    box-shadow: 
+      0 0 20px hsl(var(--accent-glow)/0.4),
+      0 0 40px hsl(var(--accent-glow)/0.2),
+      0 8px 32px rgba(0, 0, 0, 0.3);
+    transform: translateY(-2px) scale(1.02);
   }
   
   .focus-glow {
-    @apply focus:ring-2 focus:ring-accent-glow/50 focus:border-accent-glow/60;
+    @apply focus:ring-2 focus:ring-accent-glow/60 focus:border-accent-glow/80;
+  }
+  
+  .focus-glow:focus {
+    box-shadow: 
+      0 0 0 2px hsl(var(--accent-glow)/0.6),
+      0 0 20px hsl(var(--accent-glow)/0.3),
+      0 8px 32px rgba(0, 0, 0, 0.3);
   }
   
   .pulse-glow {
     animation: pulse-glow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  /* Noise Background Pattern */
+  .noise-bg {
+    background-image: url("data:image/svg+xml,%3Csvg width='200' height='200' viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='1' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
   }
 }
 

@@ -16,13 +16,15 @@ const Index = () => {
 
   return (
     <div 
-      className="min-h-screen bg-cover bg-center bg-fixed relative"
+      className="min-h-screen relative noise-bg"
       style={{ 
-        backgroundImage: `url(${glassmorphismBg})`,
+        backgroundColor: 'hsl(var(--background))',
       }}
     >
-      {/* Background Overlay */}
-      <div className="absolute inset-0 bg-gradient-glassmorphism opacity-50" />
+      {/* Subtle ambient lighting effects */}
+      <div className="absolute inset-0 bg-gradient-to-br from-primary-blue/5 via-transparent to-primary-purple/5" />
+      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary-blue/10 rounded-full blur-3xl" />
+      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-primary-purple/8 rounded-full blur-3xl" />
       
       {/* Main Layout */}
       <div className="relative z-10 flex h-screen">
@@ -58,7 +60,7 @@ const Index = () => {
       {/* Sidebar Backdrop */}
       {sidebarOpen && (
         <div
-          className="fixed inset-0 bg-black/20 backdrop-blur-sm z-30 lg:hidden"
+          className="fixed inset-0 bg-black/30 backdrop-blur-sm z-30 lg:hidden"
           onClick={() => setSidebarOpen(false)}
         />
       )}
