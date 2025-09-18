@@ -19,6 +19,26 @@ export default {
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
+        
+        // Glassmorphism Colors
+        glass: {
+          DEFAULT: "hsl(var(--glass))",
+          light: "hsl(var(--glass-light))",
+          dark: "hsl(var(--glass-dark))",
+        },
+        
+        // Message Bubble Colors
+        "bubble-incoming": "hsl(var(--bubble-incoming))",
+        "bubble-incoming-foreground": "hsl(var(--bubble-incoming-foreground))",
+        "bubble-outgoing": "hsl(var(--bubble-outgoing))",
+        "bubble-outgoing-foreground": "hsl(var(--bubble-outgoing-foreground))",
+        
+        // Gradient Accent Colors
+        "primary-blue": "hsl(var(--primary-blue))",
+        "primary-purple": "hsl(var(--primary-purple))",
+        "primary-teal": "hsl(var(--primary-teal))",
+        "accent-glow": "hsl(var(--accent-glow))",
+        
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
@@ -58,6 +78,10 @@ export default {
           ring: "hsl(var(--sidebar-ring))",
         },
       },
+      backgroundImage: {
+        "gradient-glassmorphism": "linear-gradient(135deg, hsl(var(--primary-blue)) 0%, hsl(var(--primary-purple)) 35%, hsl(var(--primary-teal)) 100%)",
+        "gradient-glow": "linear-gradient(135deg, hsl(var(--primary-blue)/0.8) 0%, hsl(var(--accent-glow)/0.6) 50%, hsl(var(--primary-purple)/0.8) 100%)",
+      },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
@@ -80,10 +104,41 @@ export default {
             height: "0",
           },
         },
+        "message-slide-up": {
+          from: {
+            opacity: "0",
+            transform: "translateY(20px) scale(0.95)",
+          },
+          to: {
+            opacity: "1",
+            transform: "translateY(0) scale(1)",
+          },
+        },
+        "pulse-glow": {
+          "0%, 100%": {
+            boxShadow: "0 0 5px hsl(var(--accent-glow)/0.3)",
+          },
+          "50%": {
+            boxShadow: "0 0 20px hsl(var(--accent-glow)/0.6), 0 0 30px hsl(var(--accent-glow)/0.4)",
+          },
+        },
+        "sidebar-slide": {
+          from: {
+            transform: "translateX(-100%)",
+            opacity: "0",
+          },
+          to: {
+            transform: "translateX(0)",
+            opacity: "1",
+          },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "message-slide": "message-slide-up 0.4s ease-out",
+        "pulse-glow": "pulse-glow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite",
+        "sidebar-slide": "sidebar-slide 0.3s ease-out",
       },
     },
   },
