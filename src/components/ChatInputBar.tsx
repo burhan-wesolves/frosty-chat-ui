@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Send, Paperclip, Smile, Mic } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { AttachmentPopover } from "./AttachmentPopover";
 
 interface ChatInputBarProps {
   onSendMessage: (message: string) => void;
@@ -29,14 +30,16 @@ export function ChatInputBar({ onSendMessage }: ChatInputBarProps) {
     <div className="p-6">
       <div className="glass-panel rounded-3xl p-4 border border-white/20">
         <div className="flex items-end space-x-4">
-          {/* Attachment Button */}
-          <Button
-            variant="ghost"
-            size="sm"
-            className="text-muted-foreground hover:text-foreground glow-on-hover rounded-full p-3"
-          >
-            <Paperclip className="h-5 w-5" />
-          </Button>
+          {/* Attachment Button with Popover */}
+          <AttachmentPopover>
+            <Button
+              variant="ghost"
+              size="sm"
+              className="text-muted-foreground hover:text-foreground glow-on-hover rounded-full p-3"
+            >
+              <Paperclip className="h-5 w-5" />
+            </Button>
+          </AttachmentPopover>
 
           {/* Message Input */}
           <div className="flex-1">

@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { User, Phone, Video, MoreVertical } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { ChatOptionsPopover } from "./ChatOptionsPopover";
 
 interface Message {
   id: string;
@@ -76,9 +77,11 @@ export function ChatWindow() {
             <Button variant="ghost" size="sm" className="glow-on-hover text-muted-foreground hover:text-foreground">
               <Video className="h-5 w-5" />
             </Button>
-            <Button variant="ghost" size="sm" className="glow-on-hover text-muted-foreground hover:text-foreground">
-              <MoreVertical className="h-5 w-5" />
-            </Button>
+            <ChatOptionsPopover>
+              <Button variant="ghost" size="sm" className="glow-on-hover text-muted-foreground hover:text-foreground">
+                <MoreVertical className="h-5 w-5" />
+              </Button>
+            </ChatOptionsPopover>
           </div>
         </div>
       </div>
