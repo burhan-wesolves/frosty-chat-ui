@@ -2,6 +2,7 @@ import { UserPlus, Search, Archive, Trash2, Settings, Flag } from "lucide-react"
 import { Button } from "@/components/ui/button";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { Separator } from "@/components/ui/separator";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 const chatOptions = [
   { icon: UserPlus, label: "Add People", color: "text-blue-400" },
@@ -28,6 +29,8 @@ export function ChatOptionsPopover({ children }: ChatOptionsPopoverProps) {
         align="end"
       >
         <div className="space-y-1">
+          <ThemeToggle />
+          <Separator className="my-2 bg-white/10" />
           {chatOptions.map((option, index) => (
             <div key={option.label}>
               {index === chatOptions.length - 1 && (

@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { ChatSidebar } from "@/components/ChatSidebar";
 import { ChatWindow } from "@/components/ChatWindow";
 import { ChatInputBar } from "@/components/ChatInputBar";
-import { ThemeToggle } from "@/components/ThemeToggle";
+
 import glassmorphismBg from "@/assets/glassmorphism-bg.jpg";
 
 const Index = () => {
@@ -30,7 +30,7 @@ const Index = () => {
       {/* Main Layout */}
       <div className="relative z-10 flex h-screen">
         {/* Top Controls */}
-        <div className="fixed top-6 left-6 right-6 z-50 flex justify-between items-center">
+        <div className="fixed top-6 left-6 z-50">
           <Button
             onClick={() => setSidebarOpen(!sidebarOpen)}
             variant="ghost"
@@ -39,8 +39,6 @@ const Index = () => {
           >
             {sidebarOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </Button>
-          
-          <ThemeToggle />
         </div>
 
         {/* Sidebar */}

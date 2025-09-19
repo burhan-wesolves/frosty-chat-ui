@@ -8,15 +8,26 @@ export function ThemeToggle() {
   return (
     <Button
       variant="ghost"
-      size="sm"
       onClick={toggleTheme}
-      className="glass-panel glow-on-hover text-foreground hover:text-primary-blue rounded-full p-3"
+      className="w-full justify-between gap-3 h-10 px-3 glow-on-hover hover:bg-white/5"
     >
-      {theme === 'dark' ? (
-        <Sun className="h-5 w-5" />
-      ) : (
-        <Moon className="h-5 w-5" />
-      )}
+      <div className="flex items-center gap-3">
+        {theme === 'dark' ? (
+          <Sun className="h-4 w-4 text-yellow-400" />
+        ) : (
+          <Moon className="h-4 w-4 text-blue-400" />
+        )}
+        <span className="text-sm text-foreground">
+          {theme === 'dark' ? 'Light Mode' : 'Dark Mode'}
+        </span>
+      </div>
+      <div className={`w-10 h-5 rounded-full transition-colors ${
+        theme === 'dark' ? 'bg-primary-blue' : 'bg-gray-300'
+      }`}>
+        <div className={`w-4 h-4 rounded-full bg-white shadow-sm transition-transform mt-0.5 ${
+          theme === 'dark' ? 'translate-x-5' : 'translate-x-0.5'
+        }`} />
+      </div>
     </Button>
   );
 }
