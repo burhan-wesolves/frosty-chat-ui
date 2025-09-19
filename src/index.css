@@ -321,3 +321,27 @@
     animation: sidebar-slide 0.3s ease-out;
   }
 }
+
+/* Mobile Responsive Styles */
+@media (max-width: 768px) {
+  .glass-panel-dark,
+  .glass-panel-light {
+    margin: 0 !important;
+    border-radius: 0 !important;
+    border: none !important;
+    min-height: 100vh;
+  }
+  
+  .message-outgoing,
+  .message-incoming {
+    max-width: 85% !important;
+  }
+  
+  .noise-bg {
+    background: hsl(var(--background)) !important;
+  }
+  
+  .noise-bg::before {
+    display: none;
+  }
+}

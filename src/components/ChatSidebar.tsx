@@ -60,19 +60,23 @@ const conversations: Conversation[] = [
 interface ChatSidebarProps {
   isOpen: boolean;
   onToggle: () => void;
+  onChatSelect?: (chatId: string) => void;
+  isMobile?: boolean;
 }
 
-export function ChatSidebar({ isOpen, onToggle }: ChatSidebarProps) {
+export function ChatSidebar({ isOpen, onToggle, onChatSelect, isMobile }: ChatSidebarProps) {
   return (
     <div 
-      className={`
-        fixed left-0 top-0 h-full w-80 glass-panel-light border-r border-white/10 
-        transform transition-all duration-300 ease-out z-40
-        ${isOpen ? 'translate-x-0' : '-translate-x-full'}
-      `}
+      className={`${
+        isMobile 
+          ? 'w-full h-full glass-panel-light border-0' 
+          : `fixed left-0 top-0 h-full w-80 glass-panel-light border-r border-white/10 
+             transform transition-all duration-300 ease-out z-40
+             ${isOpen ? 'translate-x-0' : '-translate-x-full'}`
+      }`}
     >
       {/* Header */}
-      <div className="p-6 border-b border-white/10">
+      <div className={`${isMobile ? 'p-4 pt-8' : 'p-6'} border-b border-white/10`}>
         <div className="flex items-center justify-between mb-4">
           <h2 className="text-xl font-semibold text-foreground">Messages</h2>
           <Button 
@@ -100,6 +104,7 @@ export function ChatSidebar({ isOpen, onToggle }: ChatSidebarProps) {
         {conversations.map((conversation) => (
           <div
             key={conversation.id}
+            onClick={() => onChatSelect?.(conversation.id)}
             className="p-4 border-b border-white/5 hover:bg-white/5 cursor-pointer transition-all duration-200 group"
           >
             <div className="flex items-start space-x-3">
