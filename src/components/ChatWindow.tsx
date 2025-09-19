@@ -76,9 +76,9 @@ export function ChatWindow({ selectedChat, onBack, isMobile }: ChatWindowProps) 
           {isMobile && (
             <Button
               onClick={onBack}
-              variant="ghost"
+              variant="glass"
               size="sm"
-              className="p-2 hover:bg-white/10"
+              className="text-foreground hover:text-primary-blue"
             >
               <ArrowLeft className="h-5 w-5" />
             </Button>
@@ -98,17 +98,17 @@ export function ChatWindow({ selectedChat, onBack, isMobile }: ChatWindowProps) 
         <div className="flex items-center gap-2">
           {!isMobile && (
             <>
-              <Button variant="ghost" size="sm" className="glass-panel glow-on-hover">
+              <Button variant="glass" size="sm">
                 <Phone className="h-4 w-4" />
               </Button>
-              <Button variant="ghost" size="sm" className="glass-panel glow-on-hover">
+              <Button variant="glass" size="sm">
                 <Video className="h-4 w-4" />
               </Button>
             </>
           )}
           
           <ChatOptionsPopover>
-            <Button variant="ghost" size="sm" className="glass-panel glow-on-hover">
+            <Button variant="glass" size="sm">
               <MoreHorizontal className="h-4 w-4" />
             </Button>
           </ChatOptionsPopover>

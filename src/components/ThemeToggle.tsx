@@ -7,9 +7,9 @@ export function ThemeToggle() {
 
   return (
     <Button
-      variant="ghost"
+      variant="glass"
       onClick={toggleTheme}
-      className="w-full justify-between gap-3 h-10 px-3 glow-on-hover hover:bg-white/5"
+      className="w-full justify-between gap-3 h-10 px-3 hover:text-primary-blue"
     >
       <div className="flex items-center gap-3">
         {theme === 'dark' ? (

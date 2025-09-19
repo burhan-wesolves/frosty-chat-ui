@@ -77,17 +77,7 @@ export function ChatSidebar({ isOpen, onToggle, onChatSelect, isMobile }: ChatSi
     >
       {/* Header */}
       <div className={`${isMobile ? 'p-4 pt-8' : 'p-6'} border-b border-white/10`}>
-        <div className="flex items-center justify-between mb-4">
-          <h2 className="text-xl font-semibold text-foreground">Messages</h2>
-          <Button 
-            variant="ghost" 
-            size="sm"
-            onClick={onToggle}
-            className="text-muted-foreground hover:text-foreground glow-on-hover"
-          >
-            <MoreHorizontal className="h-5 w-5" />
-          </Button>
-        </div>
+        <h1 className="text-xl font-semibold text-foreground mb-4">Messages</h1>
         
         {/* Search Bar */}
         <div className="relative">

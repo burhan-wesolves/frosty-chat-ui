@@ -37,10 +37,10 @@ export function ChatOptionsPopover({ children }: ChatOptionsPopoverProps) {
                 <Separator className="my-2 bg-white/10" />
               )}
               <Button
-                variant="ghost"
+                variant="glass"
                 className={`
-                  w-full justify-start gap-3 h-10 px-3 glow-on-hover hover:bg-white/5
-                  ${option.destructive ? 'hover:bg-red-500/10' : ''}
+                  w-full justify-start gap-3 h-10 px-3 hover:text-primary-blue
+                  ${option.destructive ? 'hover:bg-red-500/10 hover:text-red-400' : ''}
                 `}
               >
                 <option.icon className={`h-4 w-4 ${option.color}`} />

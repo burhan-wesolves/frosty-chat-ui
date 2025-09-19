@@ -28,11 +28,11 @@ export function AttachmentPopover({ children }: AttachmentPopoverProps) {
       >
         <div className="grid grid-cols-2 gap-3">
           {attachmentOptions.map((option) => (
-            <Button
-              key={option.label}
-              variant="ghost"
-              className="flex flex-col items-center gap-2 h-auto py-3 px-2 glow-on-hover hover:bg-white/5"
-            >
+              <Button
+                key={option.label}
+                variant="glass"
+                className="flex flex-col items-center gap-2 h-auto py-3 px-2 hover:text-primary-blue"
+              >
               <option.icon className={`h-6 w-6 ${option.color}`} />
               <span className="text-xs text-muted-foreground">{option.label}</span>
             </Button>

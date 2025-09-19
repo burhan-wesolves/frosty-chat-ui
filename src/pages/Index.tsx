@@ -51,9 +51,9 @@ const Index = () => {
           <div className="fixed top-6 left-6 z-50">
             <Button
               onClick={() => setSidebarOpen(!sidebarOpen)}
-              variant="ghost"
+              variant="glass"
               size="sm"
-              className="glass-panel glow-on-hover text-foreground hover:text-primary-blue"
+              className="text-foreground hover:text-primary-blue"
             >
               {sidebarOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
             </Button>

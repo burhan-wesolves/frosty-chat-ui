@@ -33,9 +33,9 @@ export function ChatInputBar({ onSendMessage }: ChatInputBarProps) {
           {/* Attachment Button with Popover */}
           <AttachmentPopover>
             <Button
-              variant="ghost"
+              variant="glass"
               size="sm"
-              className="text-muted-foreground hover:text-foreground glow-on-hover rounded-full p-3"
+              className="text-muted-foreground hover:text-foreground rounded-full p-3"
             >
               <Paperclip className="h-5 w-5" />
             </Button>
@@ -55,9 +55,9 @@ export function ChatInputBar({ onSendMessage }: ChatInputBarProps) {
           {/* Action Buttons */}
           <div className="flex items-center space-x-2">
             <Button
-              variant="ghost"
+              variant="glass"
               size="sm"
-              className="text-muted-foreground hover:text-foreground glow-on-hover rounded-full p-3"
+              className="text-muted-foreground hover:text-foreground rounded-full p-3"
             >
               <Smile className="h-5 w-5" />
             </Button>
@@ -71,16 +71,16 @@ export function ChatInputBar({ onSendMessage }: ChatInputBarProps) {
               </Button>
             ) : (
               <Button
-                variant="ghost"
+                variant="glass"
                 size="sm"
                 onMouseDown={() => setIsRecording(true)}
                 onMouseUp={() => setIsRecording(false)}
                 onMouseLeave={() => setIsRecording(false)}
                 className={`
-                  rounded-full p-3 transition-all duration-200
+                  rounded-full p-3 transition-all duration-200 text-muted-foreground hover:text-foreground
                   ${isRecording 
                     ? 'bg-red-500 text-white pulse-glow' 
-                    : 'text-muted-foreground hover:text-foreground glow-on-hover'
+                    : ''
                   }
                 `}
               >
